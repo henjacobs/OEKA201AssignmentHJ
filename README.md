@@ -3,9 +3,7 @@
 ## Insert name of group members here
 
 - Henrik Georg Jacobsen 222335
-- `...`
-- `...`
-- `<Inser name of Group member N> <Student code>`
+
 
 ## Confirmation
 ### Part 1
