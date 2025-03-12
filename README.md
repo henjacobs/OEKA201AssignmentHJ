@@ -2,7 +2,7 @@
 
 ## Insert name of group members here
 
-- `<Inser name of Group member 1> <Student code>`
+- Henrik Georg Jacobsen 222335
 - `...`
 - `...`
 - `<Inser name of Group member N> <Student code>`
