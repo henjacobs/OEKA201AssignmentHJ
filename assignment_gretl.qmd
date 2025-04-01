@@ -1,7 +1,8 @@
 ---
 title : "Bjørnar's assignment in Gretl"
-#format: html
-format: pdf
+format: 
+  html: default
+  pdf: default
 #format: docx
 author:
   - name: Henrik Georg Jacobsen
@@ -14,7 +15,6 @@ toc: true
 
 [Bjørnar's assignment](https://hiof.instructure.com/courses/9596/files/folder/Assignment?preview=1695176) 
 
-Inline equations $\theta=2+2$
 
 
 ## Exercise 1 

@@ -4,15 +4,18 @@
 
 - Henrik Georg Jacobsen 222335
 
-
 ## Confirmation
 ### Part 1
-JIH, confirmed.
+- JIH, confirmed.
 ### Part 2
-`<Bjørnar will write his confirmed message here> `
+- JIH, confirmed: assignment_gretl.qmd rendered to pdf.
+- Bjørnar will review and approve its content.0
 ### Part 3
 `<Jørn will write his confirmed message here> `
 
-# OEKA201AssignmentHJ
-# OEKA201AssignmentHJ
-# OEKA201AssignmentHJ
+
+
+
+
+
+
