@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.7.6">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Henrik Georg Jacobsen">
 
-<title>Bjørnar’s assignment in r</title>
+<title>Bjørnar’s assignment in Gretl – OEKA201AssignmentHJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,39 +21,228 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="assignment_r_files/libs/clipboard/clipboard.min.js"></script>
-<script src="assignment_r_files/libs/quarto-html/quarto.js"></script>
-<script src="assignment_r_files/libs/quarto-html/popper.min.js"></script>
-<script src="assignment_r_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="assignment_r_files/libs/quarto-html/anchor.min.js"></script>
-<link href="assignment_r_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="assignment_r_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="assignment_r_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="assignment_r_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="assignment_r_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-6c21014d9765ba549c6ebad95917e4d7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-59731d394be66c1e6c8bf119cb58801b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="fullcontent">
+<body class="nav-fixed">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">OEKA201AssignmentHJ</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Index</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assignment_gretl.html"> 
+<span class="menu-text">Exercises using Gretl</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./assignment_r.html" aria-current="page"> 
+<span class="menu-text">Exercises using R</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a>
+  <ul class="collapse">
+  <li><a href="#age" id="toc-age" class="nav-link" data-scroll-target="#age">Age:</a></li>
+  <li><a href="#winterrain" id="toc-winterrain" class="nav-link" data-scroll-target="#winterrain">WinterRain:</a></li>
+  <li><a href="#temperature" id="toc-temperature" class="nav-link" data-scroll-target="#temperature">Temperature:</a></li>
+  <li><a href="#harvestrain" id="toc-harvestrain" class="nav-link" data-scroll-target="#harvestrain">HarvestRain</a></li>
+  </ul></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assignment_r.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="assignment_r.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="assignment_r.epub"><i class="bi bi-file"></i>ePub</a></li></ul></div></nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bjørnar’s assignment in r</h1>
+<h1 class="title">Bjørnar’s assignment in Gretl</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Henrik Georg Jacobsen </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Høgskolen i Østfold
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
   
     
   </div>
@@ -62,66 +252,287 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<pre><code>toc: true</code></pre>
-<p>author: - name: affiliations: - Høgskolen i Østfold (HiOF) abstract: “This document … replicates …”</p>
-<hr>
+<p><a href="https://hiof.instructure.com/courses/9596/files/folder/Assignment?preview=1695176">Bjørnar’s assignment</a></p>
+<p>Inline equations <span class="math inline">\(\theta=2+2\)</span></p>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>summary(df_wine) obs price WinterRain temp HarvestRain Age<br>
-Min. :1952 Min. : 495.2 Min. :376.0 Min. :14.98 Min. : 38.0 Min. : 3.00<br>
-1st Qu.:1959 1st Qu.: 670.8 1st Qu.:543.5 1st Qu.:16.15 1st Qu.: 88.0 1st Qu.: 9.50<br>
-Median :1966 Median :1079.8 Median :600.0 Median :16.42 Median :123.0 Median :16.00<br>
-Mean :1966 Mean :1405.8 Mean :608.4 Mean :16.48 Mean :144.8 Mean :16.19<br>
-3rd Qu.:1973 3rd Qu.:1707.7 3rd Qu.:705.5 3rd Qu.:17.01 3rd Qu.:185.5 3rd Qu.:22.50<br>
-Max. :1980 Max. :4883.9 Max. :830.0 Max. :17.65 Max. :292.0 Max. :31.00<br>
-NA’s :2 NA’s :2 NA’s :2 NA’s :2 NA’s :2</p>
-<div class="quarto-figure quarto-figure-center">
+<pre><code>      obs           price          WinterRain         temp        HarvestRain         Age       
+ Min.   :1952   Min.   : 495.2   Min.   :376.0   Min.   :14.98   Min.   : 38.0   Min.   : 3.00  
+ 1st Qu.:1959   1st Qu.: 670.8   1st Qu.:543.5   1st Qu.:16.15   1st Qu.: 88.0   1st Qu.: 9.50  
+ Median :1966   Median :1079.8   Median :600.0   Median :16.42   Median :123.0   Median :16.00  
+ Mean   :1966   Mean   :1405.8   Mean   :608.4   Mean   :16.48   Mean   :144.8   Mean   :16.19  
+ 3rd Qu.:1973   3rd Qu.:1707.7   3rd Qu.:705.5   3rd Qu.:17.01   3rd Qu.:185.5   3rd Qu.:22.50  
+ Max.   :1980   Max.   :4883.9   Max.   :830.0   Max.   :17.65   Max.   :292.0   Max.   :31.00  
+                NA's   :2        NA's   :2       NA's   :2       NA's   :2       NA's   :2      
+</code></pre>
+<div class="cell">
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="Histogram.png" class="img-fluid figure-img"></p>
-<figcaption>Histogram of Wine Prices</figcaption>
+<p><img src="assignment_r_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment_r_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p><em>Model 1</em> <span class="math display">\[
+price_i = \beta_0 + \beta_1Age_i + u_i
+\]</span></p>
 <ol type="a">
 <li></li>
-<li></li>
+</ol>
+<pre><code>Model 3: OLS, using observations 1–29
+Dependent variable: price
+
+             Coefficient  Std. Error  t-ratio  p-value
+const         494.278      402.112     1.229   0.2304
+Age           56.318       22.222      2.534   0.0179 **
+
+R-squared: 0.2043
+Adjusted R-squared: 0.1728
+F-statistic: 6.420
+P-value (F): 0.0179</code></pre>
+<ol start="2" type="a">
 <li></li>
 </ol>
+<p>For each year the wine gets older, its price is expected to increase by 56.318 units.</p>
+<ol start="3" type="a">
+<li></li>
+</ol>
+<p>P-value (0.0179)&gt;α(0.01)</p>
+<p>Significance level (α) = 0.01 (1%)</p>
+<p><span class="math inline">\(H_0: \beta = 0\)</span></p>
+<p><span class="math inline">\(H_1: \beta \ne 0\)</span></p>
+<p>P-value is higher than 0.01, that means age is not statistically significant.</p>
+<ol start="4" type="a">
+<li></li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>       Age Predicted_Price
+1  3.00000          663.23
+2 16.18519         1405.80
+3 31.00000         2240.15</code></pre>
+</div>
+</div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p><em>Model 2</em> <span class="math display">\[
+price_i = \beta_0 + \beta_1Age_i + \beta_2WinterRain_i  +\beta_3temp_i + \beta_3HarvestRain_i + u_i \\
+\]</span></p>
 <ol type="a">
 <li></li>
-<li></li>
+</ol>
+<pre><code>Model 4: OLS, using observations 1952-1980 (T = 27)
+Missing or incomplete observations dropped: 2
+Dependent variable: price
+
+                coefficient    std. error    t-ratio   p-value 
+  -------------------------------------------------------------
+  const         −15509,0       3379,87       −4,589    0,0001   ***
+  Age               39,2126      14,3490      2,733    0,0121   **
+  WinterRain         2,75098      0,965119    2,850    0,0093   ***
+  temp             930,787      190,557       4,885    6,97e-05 ***
+  HarvestRain       −5,04694      1,61682    −3,122    0,0050   ***
+
+Mean dependent var   1405,800   S.D. dependent var   1027,226
+Sum squared resid     7238994   S.E. of regression   573,6246
+R-squared            0,736141   Adjusted R-squared   0,688166
+F(4, 22)             15,34443   P-value(F)           3,93e-06
+Log-likelihood      −207,0499   Akaike criterion     424,0999
+Schwarz criterion    430,5791   Hannan-Quinn         426,0265</code></pre>
+<ol start="2" type="a">
 <li></li>
 </ol>
+<section id="age" class="level3">
+<h3 class="anchored" data-anchor-id="age">Age:</h3>
+<p>Coefficient = 39.21</p>
+<p>P-value = 0.0121</p>
+<p>Wine price increases by 39.21 each year.</p>
+</section>
+<section id="winterrain" class="level3">
+<h3 class="anchored" data-anchor-id="winterrain">WinterRain:</h3>
+<p>Coefficient = 2.75</p>
+<p>P-value = 0.0093</p>
+<p>Wine price increases by 2.75 each mm winter rainfall.</p>
+</section>
+<section id="temperature" class="level3">
+<h3 class="anchored" data-anchor-id="temperature">Temperature:</h3>
+<p>Coefficient = 930.79</p>
+<p>P-value = 0.00007</p>
+<p>Wine price increases by 930.79 every 1 degree.</p>
+</section>
+<section id="harvestrain" class="level3">
+<h3 class="anchored" data-anchor-id="harvestrain">HarvestRain</h3>
+<p>Coefficient = -5.05</p>
+<p>P-value = 0.0050</p>
+<p>Wine price decreases by 5.05 each additional 1 mm HarvestRain</p>
+<ol start="3" type="a">
+<li></li>
+</ol>
+<p>Adding more variables improves the model to explain the wine prices.</p>
+</section>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p><em>Model 3</em> <span class="math display">\[
+price_i = \beta_0 + \beta_1Dheavyraint_i + \beta_2tempt_i + \beta_3temp_i · Dheavyrain_i + u_i
+\]</span></p>
+<ol type="a">
+<li></li>
+</ol>
+<pre><code>Model 2: OLS, using observations 1952-1980 (T = 27)
+Missing or incomplete observations dropped: 2
+Dependent variable: price
+
+                    coefficient   std. error   t-ratio   p-value
+  --------------------------------------------------------------
+  const             −16289,5       4395,18     −3,706    0,0012  ***
+  Dheavyrain         11634,1       8990,38      1,294    0,2085 
+  temp                1082,95       266,391     4,065    0,0005  ***
+  temp_Dheavyrain     −756,902      546,064    −1,386    0,1790 
+
+Mean dependent var   1405,800   S.D. dependent var   1027,226
+Sum squared resid    14038659   S.E. of regression   781,2660
+R-squared            0,488295   Adjusted R-squared   0,421550
+F(3, 23)             7,315911   P-value(F)           0,001294
+Log-likelihood      −215,9914   Akaike criterion     439,9829
+Schwarz criterion    445,1662   Hannan-Quinn         441,5242
+
+Excluding the constant, p-value was highest for variable 6 (Dheavyrain)</code></pre>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p>Temp * Dheavyrain captures whether the impact of temperature on price depends on harvest rainfall. Dheavyrain captures the shift in wine price when harvest rainfall is very high, regardless of temperature.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
 <ol type="a">
 <li></li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Actual Price</th>
+<th>Predicted Price</th>
+<th>Residual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Model 1</td>
+<td>4883.90</td>
+<td>1733.28</td>
+<td>3150.62</td>
+</tr>
+<tr class="even">
+<td>Model 2</td>
+<td>4883.90</td>
+<td>3578.80</td>
+<td>1305.10</td>
+</tr>
+<tr class="odd">
+<td>Model 3</td>
+<td>4883.90</td>
+<td>2481.70</td>
+<td>2402.20</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="a">
 <li></li>
 </ol>
+<p>Model 2 is the best model for predicting Bordeaux wine price.</p>
+<p>It hast multiple significant variables and is a better fit.</p>
 </section>
 <section id="conclusions" class="level2">
 <h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
-<p>In this document</p>
-<p><span class="citation" data-cites="wickham2015r">[@wickham2015r]</span></p>
+<p>In this document <span class="citation" data-cites="kivedal2023">(<a href="#ref-kivedal2023" role="doc-biblioref">Kivedal 2023</a>)</span></p>
+<p>Number of words in the document:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 823</code></pre>
+</div>
+</div>
 </section>
 <section id="appendix" class="level2">
 <h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
+<p>R-code</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Internal</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(OEKA201AssignmentHJ)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## External</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gretlR)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(dplyr))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Settings</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>hlim <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading data</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>iwine <span class="ot">&lt;-</span> wine</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>owine <span class="ot">&lt;-</span> iwine <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># variables in use</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">select</span>(price, WinterRain, temp, HarvestRain, Age) <span class="sc">%&gt;%</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="do">## interaction effects</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Dheavyraint=</span><span class="fu">ifelse</span>(HarvestRain<span class="sc">&gt;</span>hlim,<span class="dv">1</span>,<span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="do">## na ommit</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        stats<span class="sc">::</span><span class="fu">na.omit</span>()</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="do">### Exercise 1</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">&lt;-</span> <span class="fu">summary</span>(owine)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>cds <span class="ot">&lt;-</span> <span class="fu">cor</span>(owine)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="do">### Exercise 2</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>for1 <span class="ot">&lt;-</span> price <span class="sc">~</span> Age </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(for1,<span class="at">data=</span>owine)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>pv1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod1, <span class="at">newdata =</span> owine)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>nd2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Age =</span> <span class="dv">1961</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>pv2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod1, <span class="at">newdata =</span> owine, <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="do">### Exercise 3</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>for2 <span class="ot">&lt;-</span> price <span class="sc">~</span> Age <span class="sc">+</span> WinterRain <span class="sc">+</span> temp <span class="sc">+</span> HarvestRain </span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(for2,<span class="at">data=</span>owine)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="do">### Exercise 4</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>for3 <span class="ot">&lt;-</span> price <span class="sc">~</span> Age <span class="sc">+</span> WinterRain <span class="sc">+</span> temp <span class="sc">+</span> HarvestRain <span class="sc">+</span> Dheavyraint</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(for3,<span class="at">data=</span>owine)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="do">### Exercise 5</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod1)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod2)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>res3 <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod3)</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>resf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(res1,res2,res3)</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+
+
+
+
 </section>
 
-</main>
-<!-- /main column -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-kivedal2023" class="csl-entry" role="listitem">
+Kivedal, Bjørnar Karlsen. 2023. <em>Anvendt Statistikk Og Økonometri</em>. "Universitetsforlaget".
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -204,8 +615,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -316,7 +725,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
