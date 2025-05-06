@@ -8,7 +8,8 @@
 JIH, confirmed.
 ### Part 2
 JIH, confirmed 
-Only Gretl-output and text (no R code.) If you wrote your code in Word, please paste it here and make any necessary adjustments.
+
+Only Gretl-output and text (no R code.) If you wrote your code in Word, you should paste it here and make necessary adjustments.
 ### Part 3
 JIH, confirmed.
 
