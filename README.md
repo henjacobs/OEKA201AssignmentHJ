@@ -9,7 +9,8 @@ JIH, confirmed.
 ### Part 2
 JIH, confirmed 
 
-Only Gretl-output and text (no R code.) If you wrote your code in Word, you should paste it here and make necessary adjustments.
+Only Gretl-output and text (no R code.)  in theassignment_gretl.qmd file
+If you wrote your code in Word, you should paste it here and make necessary adjustments.
 ### Part 3
 JIH, confirmed.
 
