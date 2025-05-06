@@ -17,24 +17,29 @@ website:
         href: assignment_r.qmd
 format:
   html:
-    theme: cosmo
-    css: styles.css
     toc: true
-    # you will need to add additonal stuff here assignment part 3
+    toc-depth: 3
+    number-sections: false
+    mainfont: "Monospace"
+    css: styles.css
   docx:
     toc: true
-    # you will need to add additonal stuff here assignment part 3
+    toc-depth: 3
+    number-sections: false
   pdf:
     toc: true
-    number-sections: true
-    # you will need to add additonal stuff here assignment part 3
+    toc-depth: 3
+    number-sections: false
+    lof: true
+    lot: true
   epub:
     toc: true
     toc-depth: 3
-    # you will need to add additonal stuff here assignment part 3
+    number-sections: false
+    lof: true
+    lot: true
+    mainfont: "Arial"
 bibliography: ref.bib
-
-
 
 
 
